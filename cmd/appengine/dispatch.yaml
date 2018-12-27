@@ -1,0 +1,6 @@
+dispatch:
+  - url: '*/hook'
+    service: default
+
+  - url: '*/audios/*'
+    service: audioconverter

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"log"
 	"net/http"
 	"os"
@@ -10,6 +11,7 @@ import (
 	"github.com/sh0e1/translation-konjac/pkg/handler"
 	"github.com/sh0e1/translation-konjac/pkg/language"
 	"github.com/sh0e1/translation-konjac/pkg/middleware"
+	"github.com/sh0e1/translation-konjac/pkg/service/pubsub"
 	"github.com/sh0e1/translation-konjac/pkg/service/storage"
 	"github.com/sh0e1/translation-konjac/pkg/service/translate"
 	"github.com/sh0e1/translation-konjac/pkg/service/vision"
@@ -21,6 +23,7 @@ func main() {
 	var (
 		channelID     = os.Getenv("CHANNEL_ID")
 		channelSecret = os.Getenv("CHANNEL_SECRET")
+		pubsubTopic   = os.Getenv("PUBSUB_TOPIC")
 	)
 
 	if err := language.LoadLanguages(languagesFilePath); err != nil {
@@ -45,10 +48,17 @@ func main() {
 	}
 	defer storager.Close()
 
+	pubsubClient, err := pubsub.NewClient(appengine.AppID(context.Background()), pubsubTopic)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer pubsubClient.Close()
+
 	handler := &handler.Handler{
 		Translator:     translator,
 		ImageAnnotator: imageAnnotator,
 		Storager:       storager,
+		Topic:          pubsubClient.Topic(pubsubTopic),
 		ChannelSecret:  channelSecret,
 	}
 

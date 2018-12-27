@@ -20,9 +20,9 @@ func (m middleware) Then(h http.HandlerFunc) http.HandlerFunc {
 	return h
 }
 
-type contextKey int
+type ctxKey int
 
 // ...
 const (
-	channelTokenContextKey contextKey = iota + 1
+	channelTokenContextKey ctxKey = iota + 1
 )

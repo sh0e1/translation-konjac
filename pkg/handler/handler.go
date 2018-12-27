@@ -4,6 +4,7 @@ import (
 	"context"
 	"net/http"
 
+	"cloud.google.com/go/pubsub"
 	"github.com/line/line-bot-sdk-go/linebot"
 	"google.golang.org/appengine/log"
 	"google.golang.org/appengine/urlfetch"
@@ -20,6 +21,7 @@ type Handler struct {
 	Translator     translate.Translator
 	ImageAnnotator vision.ImageAnnotator
 	Storager       storage.Storager
+	Topic          *pubsub.Topic
 	ChannelSecret  string
 	HandleEvent    HandleEventFunc
 }
@@ -77,6 +79,7 @@ func (h *Handler) defaultHandleEventFunc(bot *linebot.Client, e *linebot.Event) 
 		Translator:     h.Translator,
 		ImageAnnotator: h.ImageAnnotator,
 		Storager:       h.Storager,
+		Topic:          h.Topic,
 	}
 
 	switch e.Type {

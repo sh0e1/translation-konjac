@@ -3,6 +3,7 @@ package handler
 import (
 	"context"
 
+	"cloud.google.com/go/pubsub"
 	"github.com/line/line-bot-sdk-go/linebot"
 
 	"github.com/sh0e1/translation-konjac/pkg/service/storage"
@@ -17,6 +18,7 @@ type BaseEventHandler struct {
 	Translator     translate.Translator
 	ImageAnnotator vision.ImageAnnotator
 	Storager       storage.Storager
+	Topic          *pubsub.Topic
 }
 
 // Handle ...
