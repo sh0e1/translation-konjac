@@ -1,0 +1,293 @@
+[
+  {
+    "label": "日本語",
+    "code": "ja",
+    "speech_code": [
+      {
+        "label": "日本語",
+        "code": "ja-JP"
+      }
+    ]
+  },
+  {
+    "label": "英語",
+    "code": "en",
+    "speech_code": [
+      {
+        "label": "英語（オーストラリア）",
+        "code": "en-AU"
+      },
+      {
+        "label": "英語（カナダ）",
+        "code": "en-CA"
+      },
+      {
+        "label": "英語（イギリス）",
+        "code": "en-GB"
+      },
+      {
+        "label": "英語（インド）",
+        "code": "en-IN"
+      },
+      {
+        "label": "英語（アイルランド）",
+        "code": "en-IE"
+      },
+      {
+        "label": "英語（ニュージーランド）",
+        "code": "en-NZ"
+      },
+      {
+        "label": "英語（フィリピン）",
+        "code": "en-PH"
+      },
+      {
+        "label": "英語（南アフリカ）",
+        "code": "en-ZA"
+      },
+      {
+        "label": "英語（米国）",
+        "code": "en-US"
+      }
+    ]
+  },
+  {
+    "label": "中国語（繁体字）",
+    "code": "zh-TW",
+    "speech_code": [
+      {
+        "label": "中国語（繁体字、台湾）",
+        "code": "cmn-Hant-TW"
+      },
+      {
+        "label": "広東語（繁体字、香港）",
+        "code": "yue-Hant-HK"
+      }
+    ]
+  },
+  {
+    "label": "中国語（簡体字）",
+    "code": "zh-CN",
+    "speech_code": [
+      {
+        "label": "中国語（簡体字、香港）",
+        "code": "cmn-Hans-HK"
+      },
+      {
+        "label": "中国語（簡体字、中国本土）",
+        "code": "cmn-Hans-CN"
+      }
+    ]
+  },
+  {
+    "label": "ヒンディー語",
+    "code": "hi",
+    "speech_code": [
+      {
+        "label": "ヒンディー語",
+        "code": "hi-IN"
+      }
+    ]
+  },
+  {
+    "label": "スペイン語",
+    "code": "es",
+    "speech_code": [
+      {
+        "label": "スペイン語（アルゼンチン）",
+        "code": "es-AR"
+      },
+      {
+        "label": "スペイン語（ボリビア）",
+        "code": "es-BO"
+      },
+      {
+        "label": "スペイン語（チリ）",
+        "code": "es-CL"
+      },
+      {
+        "label": "スペイン語（コロンビア）",
+        "code": "es-CO"
+      },
+      {
+        "label": "スペイン語（コスタリカ）",
+        "code": "es-CR"
+      },
+      {
+        "label": "スペイン語（エクアドル）",
+        "code": "es-EC"
+      },
+      {
+        "label": "スペイン語（エルサルバドル）",
+        "code": "es-SV"
+      },
+      {
+        "label": "スペイン語（スペイン）",
+        "code": "es-ES"
+      },
+      {
+        "label": "スペイン語（米国）",
+        "code": "es-US"
+      },
+      {
+        "label": "スペイン語（グアテマラ）",
+        "code": "es-GT"
+      },
+      {
+        "label": "スペイン語（ホンジュラス）",
+        "code": "es-HN"
+      },
+      {
+        "label": "スペイン語（メキシコ）",
+        "code": "es-MX"
+      },
+      {
+        "label": "スペイン語（ニカラグア）",
+        "code": "es-NI"
+      },
+      {
+        "label": "スペイン語（パナマ）",
+        "code": "es-PA"
+      },
+      {
+        "label": "スペイン語（パラグアイ）",
+        "code": "es-PY"
+      },
+      {
+        "label": "スペイン語（ペルー）",
+        "code": "es-PE"
+      },
+      {
+        "label": "スペイン語（プエルトリコ）",
+        "code": "es-PR"
+      },
+      {
+        "label": "スペイン語（ドミニカ共和国）",
+        "code": "es-DO"
+      },
+      {
+        "label": "スペイン語（ウルグアイ）",
+        "code": "es-UY"
+      },
+      {
+        "label": "スペイン語（ベネズエラ）",
+        "code": "es-VE"
+      }
+    ]
+  },
+  {
+    "label": "フランス語",
+    "code": "fr",
+    "speech_code": [
+      {
+        "label": "フランス語",
+        "code": "fr-FR"
+      }
+    ]
+  },
+  {
+    "label": "アラビア語",
+    "code": "ar",
+    "speech_code": [
+      {
+        "label": "アラビア語（イスラエル）",
+        "code": "ar-IL"
+      },
+      {
+        "label": "アラビア語（ヨルダン）",
+        "code": "ar-JO"
+      },
+      {
+        "label": "アラビア語（アラブ首長国連邦）",
+        "code": "ar-AE"
+      },
+      {
+        "label": "アラビア語（バーレーン）",
+        "code": "ar-BH"
+      },
+      {
+        "label": "アラビア語（アルジェリア）",
+        "code": "ar-DZ"
+      },
+      {
+        "label": "アラビア語（サウジアラビア）",
+        "code": "ar-SA"
+      },
+      {
+        "label": "アラビア語（イラク）",
+        "code": "ar-IQ"
+      },
+      {
+        "label": "アラビア語（クウェート）",
+        "code": "ar-KW"
+      },
+      {
+        "label": "アラビア語（モロッコ）",
+        "code": "ar-MA"
+      },
+      {
+        "label": "アラビア語（チュニジア）",
+        "code": "ar-TN"
+      },
+      {
+        "label": "アラビア語（オマーン）",
+        "code": "ar-OM"
+      },
+      {
+        "label": "アラビア語（パレスチナ国）",
+        "code": "ar-PS"
+      },
+      {
+        "label": "アラビア語（カタール）",
+        "code": "ar-QA"
+      },
+      {
+        "label": "アラビア語（レバノン）",
+        "code": "ar-LB"
+      },
+      {
+        "label": "アラビア語（エジプト）",
+        "code": "ar-EG"
+      }
+    ]
+  },
+  {
+    "label": "ロシア語",
+    "code": "ru",
+    "speech_code": [
+      {
+        "label": "ロシア語",
+        "code": "ru-RU"
+      }
+    ]
+  },
+  {
+    "label": "ポルトガル語",
+    "code": "pt",
+    "speech_code": [
+      {
+        "label": "ポルトガル語（ブラジル）",
+        "code": "pt-BR"
+      },
+      {
+        "label": "ポルトガル語（ポルトガル）",
+        "code": "pt-PT"
+      }
+    ]
+  },
+  {
+    "label": "ベンガル語",
+    "code": "bn",
+    "speech_code": []
+  },
+  {
+    "label": "ドイツ語",
+    "code": "de",
+    "speech_code": [
+      {
+        "label": "ドイツ語",
+        "code": "de-DE"
+      }
+    ]
+  }
+]
