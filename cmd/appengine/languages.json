@@ -22,6 +22,10 @@
         "code": "en-CA"
       },
       {
+        "label": "英語（ガーナ）",
+        "code": "en-GH"
+      },
+      {
         "label": "英語（イギリス）",
         "code": "en-GB"
       },
@@ -34,8 +38,16 @@
         "code": "en-IE"
       },
       {
+        "label": "英語（ケニア）",
+        "code": "en-KE"
+      },
+      {
         "label": "英語（ニュージーランド）",
         "code": "en-NZ"
+      },
+      {
+        "label": "英語（ナイジェリア）",
+        "code": "en-NG"
       },
       {
         "label": "英語（フィリピン）",
@@ -44,6 +56,10 @@
       {
         "label": "英語（南アフリカ）",
         "code": "en-ZA"
+      },
+      {
+        "label": "英語（タンザニア）",
+        "code": "en-TZ"
       },
       {
         "label": "英語（米国）",
@@ -278,7 +294,16 @@
   {
     "label": "ベンガル語",
     "code": "bn",
-    "speech_code": []
+    "speech_code": [
+      {
+        "label": "ベンガル語（バングラデシュ）",
+        "code": "bn-BD"
+      },
+      {
+        "label": "ベンガル語（インド）",
+        "code": "bn-IN"
+      }
+    ]
   },
   {
     "label": "ドイツ語",
