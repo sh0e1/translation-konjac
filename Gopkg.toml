@@ -25,6 +25,30 @@
 #   unused-packages = true
 
 
+[[constraint]]
+  name = "cloud.google.com/go"
+  version = "0.34.0"
+
+[[constraint]]
+  name = "github.com/line/line-bot-sdk-go"
+  version = "4.2.0"
+
+[[constraint]]
+  name = "github.com/pkg/errors"
+  version = "0.8.0"
+
+[[constraint]]
+  name = "golang.org/x/text"
+  version = "0.3.0"
+
+[[constraint]]
+  name = "google.golang.org/appengine"
+  version = "1.4.0"
+
+[[constraint]]
+  branch = "master"
+  name = "google.golang.org/genproto"
+
 [prune]
   go-tests = true
   unused-packages = true

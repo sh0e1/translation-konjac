@@ -8,35 +8,43 @@ import (
 	"os"
 
 	"cloud.google.com/go/pubsub"
-	"google.golang.org/appengine"
+	ps "github.com/sh0e1/translation-konjac/pkg/service/pubsub"
 )
 
 func main() {
 	var (
-		project = os.Getenv("GOOGLE_CLOUD_PROJECT")
-		token   = os.Getenv("PUBSUB_VERIFICATION_TOKEN")
+		googleCloudProject      = os.Getenv("GOOGLE_CLOUD_PROJECT")
+		pubsubTopic             = os.Getenv("PUBSUB_TOPIC")
+		pubsubSubscription      = os.Getenv("PUBSUB_SUBSCRIPTION")
+		pubsubVerificationToken = os.Getenv("PUBSUB_VERIFICATION_TOKEN")
 	)
 
-	client, err := pubsub.NewClient(context.Background(), project)
+	ctx := context.Background()
+
+	pubsubClient, err := ps.NewClient(ctx, googleCloudProject)
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer client.Close()
+	defer pubsubClient.Close()
 
-	sub := client.Subscription();
-	endpoint := fmt.Sprintf(
-		"https://%s/subscribe?token=%s",
-		appengine.DefaultVersionHostname(context.Background()),
-		token,
-	)
+	topic, err := pubsubClient.CreateTopicIfNotExists(ctx, pubsubTopic)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	endpoint := fmt.Sprintf("https://%s.appspot.com/audios/subscribe?token=%s",
+		googleCloudProject, pubsubVerificationToken)
 	cfg := pubsub.SubscriptionConfig{
+		Topic: topic,
 		PushConfig: pubsub.PushConfig{
 			Endpoint: endpoint,
 		},
 	}
-	if _, err := client.CreateSubscription(context.Background(), project, cfg)
+	if _, err := pubsubClient.CreateSubscriptionIfNotExists(ctx, pubsubSubscription, cfg); err != nil {
+		log.Fatal(err)
+	}
 
-	http.HandleFunc("/subscribe", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/audios/subscribe", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprint(w, "Hello Audio Converter")
 	})
 

@@ -2,16 +2,18 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"net/http"
 	"os"
 
+	"cloud.google.com/go/pubsub"
 	"google.golang.org/appengine"
 
 	"github.com/sh0e1/translation-konjac/pkg/handler"
 	"github.com/sh0e1/translation-konjac/pkg/language"
 	"github.com/sh0e1/translation-konjac/pkg/middleware"
-	"github.com/sh0e1/translation-konjac/pkg/service/pubsub"
+	ps "github.com/sh0e1/translation-konjac/pkg/service/pubsub"
 	"github.com/sh0e1/translation-konjac/pkg/service/storage"
 	"github.com/sh0e1/translation-konjac/pkg/service/translate"
 	"github.com/sh0e1/translation-konjac/pkg/service/vision"
@@ -19,11 +21,13 @@ import (
 
 func main() {
 	var (
-		channelID          = os.Getenv("CHANNEL_ID")
-		channelSecret      = os.Getenv("CHANNEL_SECRET")
-		pubsubTopic        = os.Getenv("PUBSUB_TOPIC")
-		googleCloudProject = os.Getenv("GOOGLE_CLOUD_PROJECT")
-		languagesFilePath  = os.Getenv("LANGUAGES_FILE_PATH")
+		channelID               = os.Getenv("CHANNEL_ID")
+		channelSecret           = os.Getenv("CHANNEL_SECRET")
+		pubsubTopic             = os.Getenv("PUBSUB_TOPIC")
+		pubsubSubscription      = os.Getenv("PUBSUB_SUBSCRIPTION")
+		pubsubVerificationToken = os.Getenv("PUBSUB_VERIFICATION_TOKEN")
+		googleCloudProject      = os.Getenv("GOOGLE_CLOUD_PROJECT")
+		languagesFilePath       = os.Getenv("LANGUAGES_FILE_PATH")
 	)
 
 	if err := language.LoadLanguages(languagesFilePath); err != nil {
@@ -50,7 +54,7 @@ func main() {
 	}
 	defer storager.Close()
 
-	pubsubClient, err := pubsub.NewClient(ctx, googleCloudProject)
+	pubsubClient, err := ps.NewClient(ctx, googleCloudProject)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -58,6 +62,18 @@ func main() {
 
 	topic, err := pubsubClient.CreateTopicIfNotExists(ctx, pubsubTopic)
 	if err != nil {
+		log.Fatal(err)
+	}
+
+	endpoint := fmt.Sprintf("https://%s.appspot.com/audios/subscribe?token=%s",
+		googleCloudProject, pubsubVerificationToken)
+	cfg := pubsub.SubscriptionConfig{
+		Topic: topic,
+		PushConfig: pubsub.PushConfig{
+			Endpoint: endpoint,
+		},
+	}
+	if _, err := pubsubClient.CreateSubscriptionIfNotExists(ctx, pubsubSubscription, cfg); err != nil {
 		log.Fatal(err)
 	}
 

@@ -70,29 +70,6 @@
   version = "v0.8.0"
 
 [[projects]]
-  branch = "master"
-  digest = "1:fd8084b65dbbc4c6f44c56db47786b844cae752f3d4c835810c98128e9d8b14d"
-  name = "github.com/sh0e1/translation-konjac"
-  packages = [
-    "internal/handler",
-    "internal/message",
-    "pkg/datastore",
-    "pkg/datastore/resources",
-    "pkg/handler",
-    "pkg/language",
-    "pkg/line/postback",
-    "pkg/line/quickreply",
-    "pkg/message",
-    "pkg/middleware",
-    "pkg/service/pubsub",
-    "pkg/service/storage",
-    "pkg/service/translate",
-    "pkg/service/vision",
-  ]
-  pruneopts = "UT"
-  revision = "330d566703e4877ceece4a6a3fbe616e228f324c"
-
-[[projects]]
   digest = "1:381ccafa5e013a0e3f9b54604ae522a73b9533a375a6a714b483c634d5e927ab"
   name = "go.opencensus.io"
   packages = [
@@ -301,14 +278,20 @@
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
-    "github.com/sh0e1/translation-konjac/pkg/handler",
-    "github.com/sh0e1/translation-konjac/pkg/language",
-    "github.com/sh0e1/translation-konjac/pkg/middleware",
-    "github.com/sh0e1/translation-konjac/pkg/service/pubsub",
-    "github.com/sh0e1/translation-konjac/pkg/service/storage",
-    "github.com/sh0e1/translation-konjac/pkg/service/translate",
-    "github.com/sh0e1/translation-konjac/pkg/service/vision",
+    "cloud.google.com/go/pubsub",
+    "cloud.google.com/go/storage",
+    "cloud.google.com/go/translate",
+    "cloud.google.com/go/vision/apiv1",
+    "github.com/line/line-bot-sdk-go/linebot",
+    "github.com/pkg/errors",
+    "golang.org/x/text/language",
     "google.golang.org/appengine",
+    "google.golang.org/appengine/datastore",
+    "google.golang.org/appengine/file",
+    "google.golang.org/appengine/log",
+    "google.golang.org/appengine/memcache",
+    "google.golang.org/appengine/urlfetch",
+    "google.golang.org/genproto/googleapis/cloud/vision/v1",
   ]
   solver-name = "gps-cdcl"
   solver-version = 1
