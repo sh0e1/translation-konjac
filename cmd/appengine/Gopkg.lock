@@ -2,7 +2,7 @@
 
 
 [[projects]]
-  digest = "1:cebae22c302dee8cf5d44d99ec2857803d4807265922631c956162ad017f6300"
+  digest = "1:cd0294985a7c410e59d367532a3314ea3fd681970cbced3aa74c69e87a4c3bef"
   name = "cloud.google.com/go"
   packages = [
     "compute/metadata",
@@ -13,6 +13,9 @@
     "internal/version",
     "longrunning",
     "longrunning/autogen",
+    "pubsub",
+    "pubsub/apiv1",
+    "pubsub/internal/distribution",
     "storage",
     "translate",
     "translate/internal/translate/v2",
@@ -68,7 +71,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:8f37076635f19b8baf16e43959f43b51b36a11f4dc49ddf14db09f074a46e6cc"
+  digest = "1:fd8084b65dbbc4c6f44c56db47786b844cae752f3d4c835810c98128e9d8b14d"
   name = "github.com/sh0e1/translation-konjac"
   packages = [
     "internal/handler",
@@ -87,7 +90,7 @@
     "pkg/service/vision",
   ]
   pruneopts = "UT"
-  revision = "557ec9ff116e479f94243dcfad4cba0fa4db8eba"
+  revision = "330d566703e4877ceece4a6a3fbe616e228f324c"
 
 [[projects]]
   digest = "1:381ccafa5e013a0e3f9b54604ae522a73b9533a375a6a714b483c634d5e927ab"
@@ -146,6 +149,17 @@
 
 [[projects]]
   branch = "master"
+  digest = "1:04a5b0e4138f98eef79ce12a955a420ee358e9f787044cc3a553ac3c3ade997e"
+  name = "golang.org/x/sync"
+  packages = [
+    "errgroup",
+    "semaphore",
+  ]
+  pruneopts = "UT"
+  revision = "37e7f081c4d4c64e13b10787722085407fe5d15f"
+
+[[projects]]
+  branch = "master"
   digest = "1:9652da56be8fe4998e79e36be6b9d30fe4fd4aacb73ecf0d9b3a33228189dc7e"
   name = "golang.org/x/sys"
   packages = ["unix"]
@@ -177,7 +191,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:1dae4300f11756bcdd686d9470de6e7fae5da04104ad9a8f3dd2890b7f30d252"
+  digest = "1:09b53f1be31931834fe6c2837693b7bffde7cdae1ea8723ae642b97a326b149f"
   name = "google.golang.org/api"
   packages = [
     "gensupport",
@@ -188,6 +202,7 @@
     "iterator",
     "option",
     "storage/v1",
+    "support/bundler",
     "transport",
     "transport/grpc",
     "transport/http",
@@ -224,13 +239,14 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:5076aa84bba8154614e26c6fe74915431b69bc46c2b25b0b98bf8bf83c1daa32"
+  digest = "1:ee3885c1ced0336b04fb99e5ee7b02bdadd105f492ea1b551ed10d9046275131"
   name = "google.golang.org/genproto"
   packages = [
     "googleapis/api/annotations",
     "googleapis/cloud/vision/v1",
     "googleapis/iam/v1",
     "googleapis/longrunning",
+    "googleapis/pubsub/v1",
     "googleapis/rpc/code",
     "googleapis/rpc/status",
     "googleapis/type/color",

@@ -17,8 +17,8 @@ type Translator interface {
 }
 
 // NewClient ...
-func NewClient() (Translator, error) {
-	c, err := translate.NewClient(context.Background())
+func NewClient(ctx context.Context) (Translator, error) {
+	c, err := translate.NewClient(ctx)
 	if err != nil {
 		return nil, err
 	}

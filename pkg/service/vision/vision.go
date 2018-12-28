@@ -18,8 +18,8 @@ type ImageAnnotator interface {
 }
 
 // NewClient ...
-func NewClient() (ImageAnnotator, error) {
-	c, err := vision.NewImageAnnotatorClient(context.Background())
+func NewClient(ctx context.Context) (ImageAnnotator, error) {
+	c, err := vision.NewImageAnnotatorClient(ctx)
 	if err != nil {
 		return nil, err
 	}

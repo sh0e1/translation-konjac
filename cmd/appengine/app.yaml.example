@@ -3,6 +3,8 @@ runtime: go111
 env_variables:
   CHANNEL_ID: YOUR_CHANNEL_ID
   CHANNEL_SECRET: YOUR_CHANNEL_SECRET
+  PUBSUB_TOPIC: YOUR_TOPIC
+  LANGUAGES_FILE_PATH: './languages.json'
 
 handlers:
 - url: /.*

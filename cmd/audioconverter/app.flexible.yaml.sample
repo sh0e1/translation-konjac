@@ -2,6 +2,9 @@ runtime: custom
 env: flex
 service: audioconverter
 
+env_variables:
+  PUBSUB_VERIFICATION_TOKEN: YOUR_PUBSUB_VERIFICATION_TOKEN
+
 #resources:
 #  cpu: 1
 #  memory_gb: 0.5

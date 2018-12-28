@@ -16,8 +16,8 @@ type Storager interface {
 }
 
 // NewClient ...
-func NewClient() (Storager, error) {
-	c, err := storage.NewClient(context.Background())
+func NewClient(ctx context.Context) (Storager, error) {
+	c, err := storage.NewClient(ctx)
 	if err != nil {
 		return nil, err
 	}
