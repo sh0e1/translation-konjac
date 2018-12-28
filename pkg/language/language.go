@@ -47,3 +47,23 @@ func IsMultipleSpeechCode(code string) bool {
 	}
 	return false
 }
+
+// GetSpeechCode ...
+func GetSpeechCode(code string) string {
+	for _, lang := range Languages {
+		if lang.Code == code {
+			return lang.SpeechCode[0].Code
+		}
+	}
+	return code
+}
+
+// GetSpeechCodes ...
+func GetSpeechCodes(code string) []SpeechCode {
+	for _, lang := range Languages {
+		if lang.Code == code {
+			return lang.SpeechCode
+		}
+	}
+	return nil
+}

@@ -22,6 +22,7 @@ type Data struct {
 	Action    Action
 	Language  string
 	MessageID string
+	Cursor    int
 }
 
 // NewSelectLanguagePostbackAction ...
@@ -35,12 +36,24 @@ func NewSelectLanguagePostbackAction(lang language.Language) *linebot.PostbackAc
 }
 
 // NewSelectAudioLanguagePostbackAction ...
-func NewSelectAudioLanguagePostbackAction(lang language.Language, mid string) *linebot.PostbackAction {
+func NewSelectAudioLanguagePostbackAction(mid string, lang language.Language) *linebot.PostbackAction {
 	data := &Data{
 		Action:    SelectAudioLanguageAction,
-		Language:  lang.Code,
 		MessageID: mid,
+		Language:  lang.Code,
 	}
 	bytes, _ := json.Marshal(data)
 	return linebot.NewPostbackAction(lang.Label, string(bytes), "", lang.Label)
+}
+
+// NewSelectAudioSpeechLanguagePostbackAction ...
+func NewSelectAudioSpeechLanguagePostbackAction(mid string, code language.SpeechCode, cursor int) *linebot.PostbackAction {
+	data := &Data{
+		Action:    SelectAudioLanguageAction,
+		MessageID: mid,
+		Language:  code.Code,
+		Cursor:    cursor,
+	}
+	bytes, _ := json.Marshal(data)
+	return linebot.NewPostbackAction(code.Label, string(bytes), "", code.Label)
 }

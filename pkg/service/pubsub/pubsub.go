@@ -2,6 +2,7 @@ package pubsub
 
 import (
 	"context"
+	"encoding/json"
 
 	"cloud.google.com/go/pubsub"
 )
@@ -49,4 +50,18 @@ func (c *Client) CreateSubscriptionIfNotExists(ctx context.Context, id string, c
 		}
 	}
 	return sub, nil
+}
+
+// Data ...
+type Data struct {
+	MessageID      string
+	ReplayToken    string
+	AudioFilePath  string
+	SourceLanguage string
+}
+
+// Marshal ...
+func (d *Data) Marshal() []byte {
+	b, _ := json.Marshal(d)
+	return b
 }

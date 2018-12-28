@@ -133,5 +133,8 @@ func (h *MessageHandler) handleAudioMessage(ctx context.Context, m linebot.Messa
 		return err
 	}
 
-	return nil
+	reply := linebot.NewTextMessage(message.AudioLanguage.String())
+	quickReplies := quickreply.SelectAudioLanguageItem(msg.ID)
+	_, err = h.Bot.ReplyMessage(h.Event.ReplyToken, reply.WithQuickReplies(quickReplies)).WithContext(ctx).Do()
+	return err
 }
